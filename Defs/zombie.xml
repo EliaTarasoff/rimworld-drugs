@@ -4,11 +4,11 @@
     <ThingDef ParentName="DrugPillBase">
         <defName>Zombie</defName>
         <label>zombie</label>
-        <description>This pill is what you get when you ask a hyper-intelligent AI to solve your survival problems. It doesn't taste good, fill your stomach, or smell like food. It does however, remove the need for external nutrients and sleep for its duration. Rumored to be powered by a tiny anti-matter reactor, this is beyond the understanding of even most glitterworlds.</description>
+        <description>This pill is what you get when you ask a hyper-intelligent AI to give you emergency survival rations. It doesn't taste good, fill your stomach, or smell like food. It does however, remove the need for external nutrients and sleep for its duration. Even glitterworld scientists don't know how it works, and they don't care to find out. People who've taken it say they wish they hadn't.</description>
         <graphicData>
-            <texPath>Things/Item/Drug/Penoxycyline</texPath>
+            <texPath>Things/Item/Resource/AnimalProductRaw/EggBirdSmall</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
-            <color>(0,0,255)</color>
+            <color>(150,150,150)</color>
         </graphicData>
         <socialPropernessMatters>false</socialPropernessMatters>
         <rotatable>false</rotatable>
@@ -27,13 +27,21 @@
                 </li>
             </outcomeDoers>
         </ingestible>
+        <comps>
+            <li Class="CompProperties_Drug">
+                <!-- Need empty tags here, otherwise the game breaks when loading a save-game. :S -->
+            </li>
+        </comps>
+        <tradeTags>
+            <li>ExoticMisc</li>
+        </tradeTags>
     </ThingDef>
 
     <HediffDef>
         <defName>ZombieHediff</defName>
         <hediffClass>HediffWithComps</hediffClass>
         <label>zombie</label>
-        <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+        <defaultLabelColor>(0.6,0.6,0.6)</defaultLabelColor>
         <scenarioCanAdd>true</scenarioCanAdd>
         <maxSeverity>1.0</maxSeverity>
         <isBad>false</isBad>
@@ -44,10 +52,30 @@
         </comps>
         <stages>
             <li>
-                <hungerRateFactorOffset>-0.99</hungerRateFactorOffset>
-                <restFallFactor>0.01</restFallFactor>
+                <hungerRateFactorOffset>-1.0</hungerRateFactorOffset>
+                <restFallFactor>0.0</restFallFactor>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.15</offset>
+                    </li>
+                </capMods>
             </li>
         </stages>
     </HediffDef>
+
+    <ThoughtDef>
+        <defName>ZombieThought</defName>
+        <workerClass>ThoughtWorker_Hediff</workerClass>
+        <hediff>ZombieHediff</hediff>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <label>zombie</label>
+                <description>I don't need to eat or sleep, but my stomach feels empty, I can't concentrate, and I feel like a corpse.</description>
+                <baseMoodEffect>-20</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
 
 </Defs>
