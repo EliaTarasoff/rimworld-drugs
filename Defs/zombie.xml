@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="DrugPillBase">
+        <defName>Zombie</defName>
+        <label>zombie</label>
+        <description>This pill is what you get when you ask a hyper-intelligent AI to solve your survival problems. It doesn't taste good, fill your stomach, or smell like food. It does however, remove the need for external nutrients and sleep for its duration. Rumored to be powered by a tiny anti-matter reactor, this is beyond the understanding of even most glitterworlds.</description>
+        <graphicData>
+            <texPath>Things/Item/Drug/Penoxycyline</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+            <color>(0,0,255)</color>
+        </graphicData>
+        <socialPropernessMatters>false</socialPropernessMatters>
+        <rotatable>false</rotatable>
+        <statBases>
+            <MarketValue>100</MarketValue>
+            <Mass>0.005</Mass>
+            <Flammability>0.7</Flammability>
+        </statBases>
+        <techLevel>Ultra</techLevel>
+        <ingestible>
+            <drugCategory>Medical</drugCategory>
+            <outcomeDoers>
+                <li Class="IngestionOutcomeDoer_GiveHediff">
+                    <hediffDef>ZombieHediff</hediffDef>
+                    <severity>1.0</severity>
+                </li>
+            </outcomeDoers>
+        </ingestible>
+    </ThingDef>
+
+    <HediffDef>
+        <defName>ZombieHediff</defName>
+        <hediffClass>HediffWithComps</hediffClass>
+        <label>zombie</label>
+        <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+        <scenarioCanAdd>true</scenarioCanAdd>
+        <maxSeverity>1.0</maxSeverity>
+        <isBad>false</isBad>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-0.05</severityPerDay>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <hungerRateFactorOffset>-0.99</hungerRateFactorOffset>
+                <restFallFactor>0.01</restFallFactor>
+            </li>
+        </stages>
+    </HediffDef>
+
+</Defs>
