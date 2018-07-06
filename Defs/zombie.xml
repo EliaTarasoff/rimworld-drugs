@@ -4,7 +4,7 @@
     <ThingDef ParentName="DrugPillBase">
         <defName>Zombie</defName>
         <label>zombie</label>
-        <description>This pill is what you get when you ask a hyper-intelligent AI to give you emergency survival rations. It doesn't taste good, fill your stomach, or smell like food. It does however, remove the need for external nutrients and sleep for its duration. Even glitterworld scientists don't know how it works, and they don't care to find out. People who've taken it say they wish they hadn't.</description>
+        <description>This pill is what you get when you ask a hyper-intelligent AI to give you emergency survival rations. It doesn't taste good, fill your stomach, or smell like food. It does however, remove the need for external nutrients and sleep for its duration. Even glitterworld scientists don't know how it works, and they don't care to find out. People who've taken it wish they hadn't.</description>
         <graphicData>
             <texPath>Things/Item/Resource/AnimalProductRaw/EggBirdSmall</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
@@ -73,7 +73,7 @@
             <li>
                 <label>zombie</label>
                 <description>I don't need to eat or sleep, but my stomach feels empty, I can't concentrate, and I feel like a corpse.</description>
-                <baseMoodEffect>-20</baseMoodEffect>
+                <baseMoodEffect>-15</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>
