@@ -29,7 +29,11 @@
         </ingestible>
         <comps>
             <li Class="CompProperties_Drug">
-                <!-- Need empty tags here, otherwise the game breaks when loading a save-game. :S -->
+                <!--
+                Need empty tags here, otherwise the game breaks when loading a save-game.
+                Probably because the base drug class has
+                    <thingClass>ThingWithComps</thingClass>
+                -->
             </li>
         </comps>
         <tradeTags>
@@ -47,7 +51,7 @@
         <isBad>false</isBad>
         <comps>
             <li Class="HediffCompProperties_SeverityPerDay">
-                <severityPerDay>-0.05</severityPerDay>
+                <severityPerDay>-0.1</severityPerDay>
             </li>
         </comps>
         <stages>
@@ -57,7 +61,7 @@
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
-                        <offset>-0.15</offset>
+                        <offset>-0.25</offset>
                     </li>
                 </capMods>
             </li>
@@ -73,7 +77,7 @@
             <li>
                 <label>zombie</label>
                 <description>I don't need to eat or sleep, but my stomach feels empty, I can't concentrate, and I feel like a corpse.</description>
-                <baseMoodEffect>-15</baseMoodEffect>
+                <baseMoodEffect>-20</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>
