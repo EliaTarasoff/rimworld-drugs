@@ -63,7 +63,14 @@
                         <capacity>Consciousness</capacity>
                         <offset>-0.25</offset>
                     </li>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>-0.1</offset>
+                    </li>
                 </capMods>
+                <statOffsets>
+                    <WorkSpeedGlobal>-0.1</WorkSpeedGlobal>
+                </statOffsets>
             </li>
         </stages>
     </HediffDef>
