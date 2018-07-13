@@ -165,4 +165,115 @@
             </li>
         </stages>
     </ThoughtDef>
+
+
+    <!--Addiction-->
+    <ChemicalDef>
+        <defName>Crank</defName>
+        <label>crank</label>
+        <addictionHediff>CrankAddiction</addictionHediff>
+        <toleranceHediff>CrankTolerance</toleranceHediff>
+        <onGeneratedAddictedToleranceChance>0.8</onGeneratedAddictedToleranceChance>
+        <onGeneratedAddictedEvents>
+            <li>
+                <hediff>ChemicalDamageSevere</hediff>
+                <chance>0.25</chance>
+                <partsToAffect>
+                    <li>Brain</li>
+                </partsToAffect>
+            </li>
+        </onGeneratedAddictedEvents>
+    </ChemicalDef>
+
+    <NeedDef ParentName="DrugAddictionNeedBase">
+        <defName>Chemical_Crank</defName>
+        <needClass>Need_Chemical</needClass>
+        <label>crank</label>
+        <description>Because of a Crank addiction, this person needs to regularly consume the drug to avoid withdrawal symptoms.</description>
+        <!--<listPriority>40</listPriority>--> <!--Needed?-->
+    </NeedDef>
+
+    <HediffDef ParentName="DrugToleranceBase">
+        <defName>CrankTolerance</defName>
+        <label>crank tolerance</label>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-0.01</severityPerDay>
+            </li>
+            <li Class="HediffCompProperties_DrugEffectFactor">
+                <chemical>Crank</chemical>
+            </li>
+        </comps>
+        <hediffGivers>
+            <li Class="HediffGiver_RandomDrugEffect">
+                <hediff>ChemicalDamageSevere</hediff>
+                <minSeverity>0.50</minSeverity>
+                <baseMtbDays>30</baseMtbDays>
+                <partsToAffect>
+                    <li>Brain</li>
+                </partsToAffect>
+            </li>
+        </hediffGivers>
+    </HediffDef>
+
+    <HediffDef ParentName="AddictionBase">
+        <defName>CrankAddiction</defName>
+        <hediffClass>Hediff_Addiction</hediffClass>
+        <label>crank addiction</label>
+        <causesNeed>Chemical_Crank</causesNeed>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-0.01</severityPerDay>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <!--Why is there always this blank stage in drug addictions?-->
+            </li>
+
+            <li>
+                <label>withdrawal</label>
+                <restFallFactorOffset>0.5</restFallFactorOffset>
+                <socialFightChanceFactor>2.5</socialFightChanceFactor>
+
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.3</offset>
+                    </li>
+                </capMods>
+                <statOffsets>
+                    <WorkSpeedGlobal>-0.3</WorkSpeedGlobal>
+                </statOffsets>
+
+                <mentalStateGivers>
+                    <li>
+                        <mentalState>Binging_DrugExtreme</mentalState>
+                        <mtbDays>30</mtbDays>
+                    </li>
+                    <li>
+                        <mentalState>Wander_Psychotic</mentalState>
+                        <mtbDays>6</mtbDays>
+                    </li>
+                </mentalStateGivers>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <ThoughtDef>
+        <defName>CrankWithdrawal</defName>
+        <workerClass>ThoughtWorker_Hediff</workerClass>
+        <hediff>CrankAddiction</hediff>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <visible>false</visible>
+            </li>
+            <li>
+                <label>crank withdrawal</label>
+                <description>Shitting fuck. Why is everyone so damn LOUD today? I NEED MORE!</description>
+                <baseMoodEffect>-40</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
 </Defs>
