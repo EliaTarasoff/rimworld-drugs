@@ -5,13 +5,15 @@
         <defName>Zombie</defName>
         <label>zombie</label>
         <description>This pill is what you get when you ask a hyper-intelligent AI to give you emergency survival rations. It doesn't taste good, fill your stomach, or smell like food. It does however, remove the need for external nutrients and sleep for its duration. Even glitterworld scientists don't know how it works, and they don't care to find out. People who've taken it wish they hadn't.</description>
+
         <graphicData>
-            <texPath>Things/Item/Resource/AnimalProductRaw/EggBirdSmall</texPath>
+            <texPath>Things/Item/Resource/AnimalProductRaw/EggOval</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
             <color>(150,150,150)</color>
         </graphicData>
-        <socialPropernessMatters>false</socialPropernessMatters>
         <rotatable>false</rotatable>
+
+        <socialPropernessMatters>false</socialPropernessMatters> <!-- This means that prison cells reserve it for prisoners, so they can feed / tend addictions. https://ludeon.com/forums/index.php?topic=30348.msg317438#msg317438 -->
         <statBases>
             <MarketValue>100</MarketValue>
             <Mass>0.005</Mass>
@@ -33,6 +35,7 @@
                 Need empty tags here, otherwise the game breaks when loading a save-game.
                 Probably because the base drug class has
                     <thingClass>ThingWithComps</thingClass>
+               I'd fix this "properly", but...then my def here would probably need to be twice as large...
                 -->
             </li>
         </comps>
@@ -43,12 +46,14 @@
 
     <HediffDef>
         <defName>ZombieHediff</defName>
-        <hediffClass>HediffWithComps</hediffClass>
         <label>zombie</label>
+
         <defaultLabelColor>(0.6,0.6,0.6)</defaultLabelColor>
+
         <scenarioCanAdd>true</scenarioCanAdd>
         <maxSeverity>1.0</maxSeverity>
         <isBad>false</isBad>
+        <hediffClass>HediffWithComps</hediffClass>
         <comps>
             <li Class="HediffCompProperties_SeverityPerDay">
                 <severityPerDay>-0.1</severityPerDay>
