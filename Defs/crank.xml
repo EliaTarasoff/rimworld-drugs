@@ -4,7 +4,7 @@
     <ThingDef ParentName="DrugPillBase">
         <defName>Crank</defName>
         <label>crank</label>
-        <description>[description here]</description>
+        <description>Rumored to be the most addictive drug on the planet, Crank is made by an unknown method, but strong as hell. Just try not to focus on how much your hands shake.</description>
 
         <graphicData>
             <texPath>Things/Item/Resource/AnimalProductRaw/EggBirdSmall</texPath>
@@ -28,25 +28,25 @@
                     <severity>1.0</severity>
                     <toleranceChemical>Crank</toleranceChemical>
                 </li>
-                <li Class="IngestionOutcomeDoer_OffsetNeed">
-                    <need>Rest</need>
-                    <offset>0.5</offset>
-                    <toleranceChemical>Crank</toleranceChemical>
-                </li>
                 <li Class="IngestionOutcomeDoer_GiveHediff">
                     <hediffDef>CrankTolerance</hediffDef>
                     <severity>0.1</severity>
                     <divideByBodySize>true</divideByBodySize>
+                </li>
+                <li Class="IngestionOutcomeDoer_OffsetNeed">
+                    <need>Rest</need>
+                    <offset>0.5</offset>
+                    <toleranceChemical>Crank</toleranceChemical>
                 </li>
             </outcomeDoers>
         </ingestible>
         <comps>
             <li Class="CompProperties_Drug">
                 <chemical>Crank</chemical>
-                <addictiveness>0.50</addictiveness>
+                <addictiveness>0.30</addictiveness>
                 <minToleranceToAddict>0.00</minToleranceToAddict>
                 <existingAddictionSeverityOffset>0.40</existingAddictionSeverityOffset> <!--?!?!-->
-                <needLevelOffset>1</needLevelOffset>
+                <needLevelOffset>1</needLevelOffset> <!--?!?!-->
                 <!--<listOrder>210</listOrder>--> <!--Needed?-->
                 <overdoseSeverityOffset>
                     <min>0.05</min> <!--?!?!-->
