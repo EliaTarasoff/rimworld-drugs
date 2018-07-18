@@ -24,7 +24,7 @@
             <outcomeDoers>
                 <li Class="IngestionOutcomeDoer_GiveHediff">
                     <hediffDef>ZombieHediff</hediffDef>
-                    <severity>1.0</severity>
+                    <severity>20.0</severity>
                 </li>
             </outcomeDoers>
         </ingestible>
@@ -50,16 +50,34 @@
         <defaultLabelColor>(0.6, 0.6, 0.6)</defaultLabelColor>
 
         <scenarioCanAdd>true</scenarioCanAdd>
-        <maxSeverity>1.0</maxSeverity>
+        <maxSeverity>20.0</maxSeverity>
         <isBad>false</isBad>
         <hediffClass>HediffWithComps</hediffClass>
         <comps>
             <li Class="HediffCompProperties_SeverityPerDay">
-                <severityPerDay>-0.1</severityPerDay>
+                <severityPerDay>-1.0</severityPerDay> <!--easier to count days-->
             </li>
         </comps>
         <stages>
             <li>
+                <label>almost recovered</label>
+            </li>
+
+            <li>
+                <label>after-effects</label>
+                <minSeverity>10.0</minSeverity>
+
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.1</offset>
+                    </li>
+                </capMods>
+            </li>
+
+            <li>
+                <minSeverity>15.0</minSeverity>
+
                 <hungerRateFactorOffset>-1.0</hungerRateFactorOffset>
                 <restFallFactor>0.0</restFallFactor>
                 <capMods>
@@ -85,6 +103,18 @@
         <hediff>ZombieHediff</hediff>
         <validWhileDespawned>true</validWhileDespawned>
         <stages>
+            <li>
+                <label>zombie (almost recovered)</label>
+                <description>I'm almost back to normal. I can feel it!</description>
+                <baseMoodEffect>-5</baseMoodEffect>
+            </li>
+
+            <li>
+                <label>zombie (after-effects)</label>
+                <description>My guts feel trashed after using that "survival pill".</description>
+                <baseMoodEffect>-10</baseMoodEffect>
+            </li>
+
             <li>
                 <label>zombie</label>
                 <description>I don't need to eat or sleep, but my stomach feels empty, I can't concentrate, and I feel like a corpse.</description>
