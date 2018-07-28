@@ -117,8 +117,8 @@
             <li>
                 <label>high</label>
                 <minSeverity>0.75</minSeverity>
-                <painFactor>0.25</painFactor>
-                <restFallFactor>0.05</restFallFactor>
+                <painFactor>0.5</painFactor>
+                <restFallFactor>0.3</restFallFactor>
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
