@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="AnimaxBase">
+        <defName>Kitty</defName>
+        <label>kitty</label>
+        <description>Invented by an excommunicated West Ollin scientist, Kitty was designed to keep slaves content. It's the least controversial of his inventions...</description>
+
+        <graphicData>
+            <texPath>Things/Item/Resource/AnimalProductRaw/EggBirdSmall</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+            <color>(255, 192, 203)</color>
+        </graphicData>
+        <rotatable>false</rotatable>
+
+        <ingestible>
+            <drugCategory>Medical</drugCategory>
+            <outcomeDoers>
+                <li Class="IngestionOutcomeDoer_GiveHediff">
+                    <hediffDef>KittyHediff</hediffDef>
+                    <severity>1.0</severity>
+                    <toleranceChemical>Animax</toleranceChemical>
+                </li>
+            </outcomeDoers>
+        </ingestible>
+    </ThingDef>
+
+    <HediffDef>
+        <defName>KittyHediff</defName>
+        <label>kitty</label>
+
+        <defaultLabelColor>(1.0, .75, 0.8)</defaultLabelColor>
+
+        <scenarioCanAdd>true</scenarioCanAdd>
+        <maxSeverity>1.0</maxSeverity>
+        <isBad>false</isBad>
+        <hediffClass>HediffWithComps</hediffClass>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-0.5</severityPerDay>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <label>wearing off</label>
+                <minSeverity>0.01</minSeverity>
+                <restFallFactor>1.4</restFallFactor>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.08</offset>
+                    </li>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>0.15</offset>
+                    </li>
+                    <li>
+                        <capacity>Hearing</capacity>
+                        <offset>0.1</offset>
+                    </li>
+                </capMods>
+            </li>
+
+            <li>
+                <minSeverity>0.4</minSeverity>
+                <restFallFactor>1.8</restFallFactor>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.16</offset>
+                    </li>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>0.3</offset>
+                    </li>
+                    <li>
+                        <capacity>Hearing</capacity>
+                        <offset>0.2</offset>
+                    </li>
+                </capMods>
+            </li>
+
+            <li>
+                <label>adjusting</label>
+                <minSeverity>0.9</minSeverity>
+                <hungerRateFactorOffset>0.2</hungerRateFactorOffset>
+                <restFallFactor>1.2</restFallFactor>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.08</offset>
+                    </li>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>0.15</offset>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <ThoughtDef>
+        <defName>KittyThought</defName>
+        <workerClass>ThoughtWorker_Hediff</workerClass>
+        <hediff>KittyHediff</hediff>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <label>Kitty (wearing off)</label>
+                <description>I feel like I'm waking up.</description>
+                <baseMoodEffect>3</baseMoodEffect>
+            </li>
+
+            <li>
+                <label>Kitty</label>
+                <description>I'm a happy kitty!</description>
+                <baseMoodEffect>8</baseMoodEffect>
+            </li>
+
+            <li>
+                <label>Kitty (adjusting)</label>
+                <description>It's starting to take effect.</description>
+                <baseMoodEffect>1</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+</Defs>

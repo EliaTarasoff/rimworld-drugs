@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef Name="AnimaxBase" ParentName="DrugPillBase" Abstract="True">
+        <defName>AnimaxBase</defName>
+
+        <socialPropernessMatters>true</socialPropernessMatters> <!-- True means that prison cells reserve it for prisoners, so they can feed / tend addictions. https://ludeon.com/forums/index.php?topic=30348.msg317438#msg317438 -->
+        <statBases>
+            <MarketValue>25</MarketValue>
+            <Mass>0.005</Mass>
+            <Flammability>1.0</Flammability>
+        </statBases>
+        <techLevel>Industrial</techLevel>
+        <ingestible>
+            <drugCategory>Medical</drugCategory>
+            <outcomeDoers>
+                <li Class="IngestionOutcomeDoer_GiveHediff">
+                    <hediffDef>AnimaxTolerance</hediffDef>
+                    <severity>0.03</severity>
+                    <divideByBodySize>true</divideByBodySize>
+                </li>
+            </outcomeDoers>
+        </ingestible>
+        <comps>
+            <li Class="CompProperties_Drug">
+                <chemical>Animax</chemical>
+                <addictiveness>0.01</addictiveness>
+                <minToleranceToAddict>0.2</minToleranceToAddict>
+                <existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset> <!-- make existing addiction worse? -->
+                <needLevelOffset>1</needLevelOffset> <!-- maybe for feeding addiction, 1/day? -->
+                <overdoseSeverityOffset>
+                    <!--?!?!-->
+                    <min>0.04</min>
+                    <max>0.08</max>
+                </overdoseSeverityOffset>
+                <largeOverdoseChance>0.0</largeOverdoseChance>
+                <isCombatEnhancingDrug>false</isCombatEnhancingDrug>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <!--Addiction-->
+    <ChemicalDef>
+        <defName>Animax</defName>
+        <label>animax</label>
+        <addictionHediff>AnimaxAddiction</addictionHediff>
+        <toleranceHediff>AnimaxTolerance</toleranceHediff>
+        <onGeneratedAddictedToleranceChance>0.8</onGeneratedAddictedToleranceChance>
+        <onGeneratedAddictedEvents>
+            <li>
+                <hediff>ChemicalDamageModerate</hediff>
+                <chance>0.25</chance>
+                <partsToAffect>
+                    <li>Stomach</li>
+                </partsToAffect>
+            </li>
+        </onGeneratedAddictedEvents>
+    </ChemicalDef>
+
+    <NeedDef ParentName="DrugAddictionNeedBase">
+        <defName>AnimaxAddictionNeed</defName>
+        <needClass>Need_Chemical</needClass>
+        <label>animax</label>
+        <description>Because of an Animax addiction, this person needs to regularly consume the drug to avoid withdrawal symptoms.</description>
+    </NeedDef>
+
+    <HediffDef ParentName="DrugToleranceBase">
+        <defName>AnimaxTolerance</defName>
+        <label>animax tolerance</label>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-0.01</severityPerDay>
+            </li>
+            <li Class="HediffCompProperties_DrugEffectFactor">
+                <chemical>Animax</chemical>
+            </li>
+        </comps>
+        <hediffGivers>
+            <li Class="HediffGiver_RandomDrugEffect">
+                <hediff>ChemicalDamageModerate</hediff>
+                <minSeverity>0.50</minSeverity>
+                <baseMtbDays>30</baseMtbDays>
+                <partsToAffect>
+                    <li>Stomach</li>
+                </partsToAffect>
+            </li>
+        </hediffGivers>
+    </HediffDef>
+
+    <HediffDef ParentName="AddictionBase">
+        <defName>AnimaxAddiction</defName>
+        <hediffClass>Hediff_Addiction</hediffClass>
+        <label>animax addiction</label>
+        <causesNeed>AnimaxAddictionNeed</causesNeed>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-0.01</severityPerDay>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <!-- this is to allow for the last stage of "addiction", which shows up, but has no negatives? -->
+            </li>
+
+            <li>
+                <label>withdrawal</label>
+                <restFallFactorOffset>0.1</restFallFactorOffset>
+                <socialFightChanceFactor>1.2</socialFightChanceFactor>
+
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.05</offset>
+                    </li>
+                </capMods>
+                <statOffsets>
+                    <WorkSpeedGlobal>-0.1</WorkSpeedGlobal>
+                </statOffsets>
+
+                <mentalStateGivers>
+                    <li>
+                        <mentalState>Binging_DrugExtreme</mentalState>
+                        <mtbDays>40</mtbDays>
+                    </li>
+                    <li>
+                        <mentalState>Wander_Psychotic</mentalState>
+                        <mtbDays>15</mtbDays>
+                    </li>
+                </mentalStateGivers>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <ThoughtDef>
+        <defName>AnimaxWithdrawal</defName>
+        <workerClass>ThoughtWorker_Hediff</workerClass>
+        <hediff>AnimaxAddiction</hediff>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <visible>false</visible>
+            </li>
+            <li>
+                <label>animax withdrawal</label>
+                <description>I want to feel like an animal. Wild and free!</description>
+                <baseMoodEffect>-7</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+</Defs>
