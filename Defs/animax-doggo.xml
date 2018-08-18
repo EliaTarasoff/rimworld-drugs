@@ -43,14 +43,9 @@
         <stages>
             <li>
                 <label>wearing off</label>
-                <minSeverity>0.01</minSeverity>
-                <hungerRateFactorOffset>0.2</hungerRateFactorOffset>
+
                 <restFallFactor>1.2</restFallFactor>
                 <capMods>
-                    <li>
-                        <capacity>Consciousness</capacity>
-                        <offset>-0.08</offset>
-                    </li>
                     <li>
                         <capacity>Moving</capacity>
                         <offset>0.15</offset>
@@ -59,30 +54,16 @@
                         <capacity>Hearing</capacity>
                         <offset>0.1</offset>
                     </li>
-                    <li>
-                        <capacity>Sight</capacity>
-                        <offset>-0.05</offset>
-                    </li>
-                    <li>
-                        <capacity>Breathing</capacity>
-                        <offset>0.1</offset>
-                    </li>
                 </capMods>
                 <statOffsets>
-                    <ComfyTemperatureMin>-1</ComfyTemperatureMin>
-                    <ComfyTemperatureMax>1</ComfyTemperatureMax>
+                    <HungerRateMultiplier>0.2</HungerRateMultiplier>
                 </statOffsets>
             </li>
 
             <li>
                 <minSeverity>0.4</minSeverity>
-                <hungerRateFactorOffset>0.4</hungerRateFactorOffset>
                 <restFallFactor>1.4</restFallFactor>
                 <capMods>
-                    <li>
-                        <capacity>Consciousness</capacity>
-                        <offset>-0.16</offset>
-                    </li>
                     <li>
                         <capacity>Moving</capacity>
                         <offset>0.3</offset>
@@ -91,38 +72,24 @@
                         <capacity>Hearing</capacity>
                         <offset>0.2</offset>
                     </li>
-                    <li>
-                        <capacity>Sight</capacity>
-                        <offset>-0.1</offset>
-                    </li>
-                    <li>
-                        <capacity>Breathing</capacity>
-                        <offset>0.2</offset>
-                    </li>
                 </capMods>
                 <statOffsets>
-                    <ComfyTemperatureMin>-2</ComfyTemperatureMin>
-                    <ComfyTemperatureMax>2</ComfyTemperatureMax>
+                    <HungerRateMultiplier>0.4</HungerRateMultiplier>
                 </statOffsets>
             </li>
 
             <li>
                 <label>adjusting</label>
+
                 <minSeverity>0.9</minSeverity>
-                <hungerRateFactorOffset>0.2</hungerRateFactorOffset>
-                <restFallFactor>1.2</restFallFactor>
                 <capMods>
                     <li>
-                        <capacity>Consciousness</capacity>
-                        <offset>-0.08</offset>
-                    </li>
-                    <li>
                         <capacity>Moving</capacity>
-                        <offset>0.2</offset>
+                        <offset>0.15</offset>
                     </li>
                     <li>
-                        <capacity>Breathing</capacity>
-                        <offset>0.2</offset>
+                        <capacity>Hearing</capacity>
+                        <offset>0.1</offset>
                     </li>
                 </capMods>
             </li>
@@ -137,19 +104,19 @@
         <stages>
             <li>
                 <label>Doggo (wearing off)</label>
-                <description>Sad! No dog.</description>
+                <description>This feels weird...</description>
                 <baseMoodEffect>-1</baseMoodEffect>
             </li>
 
             <li>
                 <label>Doggo</label>
-                <description>Happy working!</description>
-                <baseMoodEffect>2</baseMoodEffect>
+                <description>I can run for miles!</description>
+                <baseMoodEffect>3</baseMoodEffect>
             </li>
 
             <li>
                 <label>Doggo (adjusting)</label>
-                <description>Am I panting?</description>
+                <description>I feel more energetic.</description>
                 <baseMoodEffect>1</baseMoodEffect>
             </li>
         </stages>

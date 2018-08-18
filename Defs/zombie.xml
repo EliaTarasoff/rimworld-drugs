@@ -78,7 +78,6 @@
             <li>
                 <minSeverity>15.0</minSeverity>
 
-                <hungerRateFactorOffset>-1.0</hungerRateFactorOffset>
                 <restFallFactor>0.0</restFallFactor>
                 <painFactor>0.0</painFactor>
                 <capMods>
@@ -93,6 +92,7 @@
                 </capMods>
                 <statOffsets>
                     <WorkSpeedGlobal>-0.15</WorkSpeedGlobal>
+                    <HungerRateMultiplier>-1.0</HungerRateMultiplier>
                 </statOffsets>
             </li>
         </stages>

@@ -43,20 +43,12 @@
         <stages>
             <li>
                 <label>wearing off</label>
-                <minSeverity>0.01</minSeverity>
+
                 <restFallFactor>1.4</restFallFactor>
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
                         <offset>-0.08</offset>
-                    </li>
-                    <li>
-                        <capacity>Moving</capacity>
-                        <offset>0.15</offset>
-                    </li>
-                    <li>
-                        <capacity>Hearing</capacity>
-                        <offset>0.1</offset>
                     </li>
                 </capMods>
             </li>
@@ -69,30 +61,18 @@
                         <capacity>Consciousness</capacity>
                         <offset>-0.16</offset>
                     </li>
-                    <li>
-                        <capacity>Moving</capacity>
-                        <offset>0.3</offset>
-                    </li>
-                    <li>
-                        <capacity>Hearing</capacity>
-                        <offset>0.2</offset>
-                    </li>
                 </capMods>
             </li>
 
             <li>
                 <label>adjusting</label>
+
                 <minSeverity>0.9</minSeverity>
-                <hungerRateFactorOffset>0.2</hungerRateFactorOffset>
                 <restFallFactor>1.2</restFallFactor>
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
-                        <offset>-0.08</offset>
-                    </li>
-                    <li>
-                        <capacity>Moving</capacity>
-                        <offset>0.15</offset>
+                        <offset>-0.04</offset>
                     </li>
                 </capMods>
             </li>
@@ -107,20 +87,20 @@
         <stages>
             <li>
                 <label>Kitty (wearing off)</label>
-                <description>I feel like I'm waking up.</description>
-                <baseMoodEffect>3</baseMoodEffect>
+                <description>I'm coming to my senses.</description>
+                <baseMoodEffect>5</baseMoodEffect>
             </li>
 
             <li>
                 <label>Kitty</label>
                 <description>I'm a happy kitty!</description>
-                <baseMoodEffect>8</baseMoodEffect>
+                <baseMoodEffect>20</baseMoodEffect>
             </li>
 
             <li>
                 <label>Kitty (adjusting)</label>
-                <description>It's starting to take effect.</description>
-                <baseMoodEffect>1</baseMoodEffect>
+                <description>This is starting to feel...good.</description>
+                <baseMoodEffect>10</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>
