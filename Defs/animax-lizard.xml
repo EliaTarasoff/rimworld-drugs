@@ -7,11 +7,8 @@
         <description>Invented by an excommunicated West Ollin scientist, Lizard was designed to keep hunters alive in extreme deserts. Its list of ingredients is why he was excommunicated...</description>
 
         <graphicData>
-            <texPath>Things/Item/Resource/AnimalProductRaw/EggBirdSmall</texPath>
-            <graphicClass>Graphic_StackCount</graphicClass>
             <color>(100, 150, 100)</color>
         </graphicData>
-        <rotatable>false</rotatable>
 
         <ingestible>
             <drugCategory>Medical</drugCategory>
@@ -37,27 +34,12 @@
         <hediffClass>HediffWithComps</hediffClass>
         <comps>
             <li Class="HediffCompProperties_SeverityPerDay">
-                <severityPerDay>-0.5</severityPerDay>
+                <severityPerDay>-0.9</severityPerDay>
             </li>
         </comps>
         <stages>
             <li>
-                <label>wearing off</label>
-
-                <capMods>
-                    <li>
-                        <capacity>Moving</capacity>
-                        <offset>-0.1</offset>
-                    </li>
-                </capMods>
-                <statOffsets>
-                    <ComfyTemperatureMax>2</ComfyTemperatureMax>
-                    <HungerRateMultiplier>-0.15</HungerRateMultiplier>
-                </statOffsets>
-            </li>
-
-            <li>
-                <minSeverity>0.4</minSeverity>
+                <minSeverity>0.01</minSeverity>
                 <capMods>
                     <li>
                         <capacity>Moving</capacity>
@@ -70,16 +52,6 @@
                     <HungerRateMultiplier>-0.3</HungerRateMultiplier>
                 </statOffsets>
             </li>
-
-            <li>
-                <label>adjusting</label>
-
-                <minSeverity>0.9</minSeverity>
-                <statOffsets>
-                    <ComfyTemperatureMax>2</ComfyTemperatureMax>
-                    <HungerRateMultiplier>-0.15</HungerRateMultiplier>
-                </statOffsets>
-            </li>
         </stages>
     </HediffDef>
 
@@ -90,21 +62,9 @@
         <validWhileDespawned>true</validWhileDespawned>
         <stages>
             <li>
-                <label>Lizard (wearing off)</label>
-                <description>I feel hot and dehydrated.</description>
-                <baseMoodEffect>-3</baseMoodEffect>
-            </li>
-
-            <li>
                 <label>Lizard</label>
                 <description>The smooth-skins...bother me.</description>
                 <baseMoodEffect>-5</baseMoodEffect>
-            </li>
-
-            <li>
-                <label>Lizard (adjusting)</label>
-                <description>It's starting to take effect.</description>
-                <baseMoodEffect>-1</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>

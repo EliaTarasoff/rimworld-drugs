@@ -7,11 +7,8 @@
         <description>Invented by an excommunicated West Ollin scientist, Kitty was designed to keep slaves content. It's the least controversial of his inventions...</description>
 
         <graphicData>
-            <texPath>Things/Item/Resource/AnimalProductRaw/EggBirdSmall</texPath>
-            <graphicClass>Graphic_StackCount</graphicClass>
             <color>(255, 192, 203)</color>
         </graphicData>
-        <rotatable>false</rotatable>
 
         <ingestible>
             <drugCategory>Medical</drugCategory>
@@ -37,42 +34,17 @@
         <hediffClass>HediffWithComps</hediffClass>
         <comps>
             <li Class="HediffCompProperties_SeverityPerDay">
-                <severityPerDay>-0.5</severityPerDay>
+                <severityPerDay>-0.9</severityPerDay>
             </li>
         </comps>
         <stages>
             <li>
-                <label>wearing off</label>
-
-                <restFallFactor>1.4</restFallFactor>
-                <capMods>
-                    <li>
-                        <capacity>Consciousness</capacity>
-                        <offset>-0.08</offset>
-                    </li>
-                </capMods>
-            </li>
-
-            <li>
-                <minSeverity>0.4</minSeverity>
+                <minSeverity>0.01</minSeverity>
                 <restFallFactor>1.8</restFallFactor>
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
                         <offset>-0.16</offset>
-                    </li>
-                </capMods>
-            </li>
-
-            <li>
-                <label>adjusting</label>
-
-                <minSeverity>0.9</minSeverity>
-                <restFallFactor>1.2</restFallFactor>
-                <capMods>
-                    <li>
-                        <capacity>Consciousness</capacity>
-                        <offset>-0.04</offset>
                     </li>
                 </capMods>
             </li>
@@ -86,21 +58,9 @@
         <validWhileDespawned>true</validWhileDespawned>
         <stages>
             <li>
-                <label>Kitty (wearing off)</label>
-                <description>I'm coming to my senses.</description>
-                <baseMoodEffect>5</baseMoodEffect>
-            </li>
-
-            <li>
                 <label>Kitty</label>
                 <description>I'm a happy kitty!</description>
                 <baseMoodEffect>20</baseMoodEffect>
-            </li>
-
-            <li>
-                <label>Kitty (adjusting)</label>
-                <description>This is starting to feel...good.</description>
-                <baseMoodEffect>10</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>

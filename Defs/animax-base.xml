@@ -4,6 +4,12 @@
     <ThingDef Name="AnimaxBase" ParentName="DrugPillBase" Abstract="True">
         <defName>AnimaxBase</defName>
 
+        <graphicData>
+            <texPath>Things/Item/Resource/AnimalProductRaw/EggBirdSmall</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <rotatable>false</rotatable>
+
         <socialPropernessMatters>true</socialPropernessMatters> <!-- True means that prison cells reserve it for prisoners, so they can feed / tend addictions. https://ludeon.com/forums/index.php?topic=30348.msg317438#msg317438 -->
         <statBases>
             <MarketValue>25</MarketValue>
